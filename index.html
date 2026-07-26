@@ -5,22 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>habitua.life — Tu Centro de Control Personal con Propósito</title>
   
-  <!-- Tailwind CSS CDN para estilos inmediatos -->
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Tipografías elegantes -->
+  <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    .font-serif { font-family: 'Newsreader', serif; }
-  </style>
+  <!-- Enlace a tu archivo CSS personalizado -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-[#FDFBF7] text-[#2C2A29] selection:bg-[#E8D8C8]">
 
-  <!-- 1. BARRA DE NAVEGACIÓN -->
+  <!-- NAVEGACIÓN -->
   <nav class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
     <div class="flex items-center gap-2">
       <span class="text-2xl font-serif font-bold tracking-tight">habitua<span class="text-[#A3B18A]">\</span>life</span>
@@ -30,7 +28,7 @@
     </a>
   </nav>
 
-  <!-- 2. HERO SECTION -->
+  <!-- HERO SECTION -->
   <section class="max-w-4xl mx-auto px-6 pt-12 pb-20 text-center">
     <div class="inline-block bg-[#E8E8E0] text-[#4A5D4E] text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
       🌸 Tu Centro de Control Personal con Propósito
@@ -44,9 +42,9 @@
       Olvídate de los PDF estáticos. Habitua es el sistema digital interactivo que adapta tus rutinas, cuida tus finanzas y transforma tu disciplina diaria en ayuda real para animales rescatados.
     </p>
 
-    <!-- FORMULARIO DE CAPTURA -->
+    <!-- FORMULARIO -->
     <div id="join" class="max-w-md mx-auto bg-white p-3 rounded-2xl shadow-sm border border-[#EFECE6]">
-      <form id="waitlist-form" onsubmit="handleFormSubmit(event)" class="flex flex-col sm:flex-row gap-2">
+      <form id="waitlist-form" class="flex flex-col sm:flex-row gap-2">
         <input 
           type="email" 
           id="email-input"
@@ -62,7 +60,6 @@
         </button>
       </form>
 
-      <!-- MENSAJE DE ÉXITO (OCULTO INICIALMENTE) -->
       <div id="success-message" class="hidden p-4 text-center text-[#4A5D4E] font-medium text-sm">
         ✨ ¡Lugar reservado! Te hemos enviado un correo con tu acceso prioritario.
       </div>
@@ -72,7 +69,7 @@
     </p>
   </section>
 
-  <!-- 3. PREVIEW VISUAL INTERACTIVA -->
+  <!-- PREVIEW INTERACTIVA -->
   <section class="max-w-5xl mx-auto px-6 mb-24">
     <div class="bg-[#FAF7F2] border border-[#EFECE6] rounded-3xl p-8 sm:p-12 shadow-sm">
       <div class="max-w-2xl mx-auto bg-white rounded-2xl p-6 border border-[#EFECE6] shadow-md space-y-6">
@@ -121,7 +118,7 @@
     </div>
   </section>
 
-  <!-- 4. COMPARATIVA POR QUÉ NO FUNCIONAN LOS PDFS -->
+  <!-- POR QUÉ NO FUNCIONAN LOS PDFS -->
   <section class="max-w-4xl mx-auto px-6 py-16 mb-20">
     <h2 class="text-3xl font-serif text-center mb-12">
       ¿Por qué las agendas y los PDF estáticos terminan en el olvido?
@@ -154,7 +151,7 @@
     </div>
   </section>
 
-  <!-- 5. FEATURES -->
+  <!-- FEATURES -->
   <section class="max-w-5xl mx-auto px-6 py-16 mb-20">
     <div class="text-center mb-16">
       <p class="text-xs font-semibold text-[#A3B18A] uppercase tracking-widest mb-2">Sistema Operativo de Vida</p>
@@ -188,7 +185,7 @@
     </div>
   </section>
 
-  <!-- 6. LA CAUSA ANIMALISTA -->
+  <!-- CAUSA ANIMALISTA -->
   <section class="bg-[#F0F4EC] py-20 px-6 border-y border-[#E2EADA]">
     <div class="max-w-4xl mx-auto text-center space-y-6">
       <span class="text-4xl">🐾</span>
@@ -201,7 +198,7 @@
     </div>
   </section>
 
-  <!-- 7. FOOTER -->
+  <!-- FOOTER -->
   <footer class="max-w-4xl mx-auto px-6 py-20 text-center">
     <h2 class="text-3xl font-serif mb-4">Empieza a construir la vida que quieres.</h2>
     <p class="text-sm text-[#6B6663] mb-8">
@@ -217,17 +214,7 @@
     </div>
   </footer>
 
-  <!-- SCRIPT PARA EL MANEJO DEL FORMULARIO -->
-  <script>
-    function handleFormSubmit(event) {
-      event.preventDefault();
-      const email = document.getElementById('email-input').value;
-      
-      if (email) {
-        document.getElementById('waitlist-form').classList.add('hidden');
-        document.getElementById('success-message').classList.remove('hidden');
-      }
-    }
-  </script>
+  <!-- Carga de tu archivo de JavaScript -->
+  <script src="app.js"></script>
 </body>
 </html>
