@@ -1,0 +1,15 @@
+/* Estilos globales y personalizaciones de tipografía */
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #FDFBF7;
+  color: #2C2A29;
+}
+
+.font-serif {
+  font-family: 'Newsreader', serif;
+}
+
+/* Transición suave al desplazarse */
+html {
+  scroll-behavior: smooth;
+}
