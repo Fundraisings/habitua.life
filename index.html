@@ -29,7 +29,7 @@
   </nav>
 
   <!-- HERO SECTION -->
-  <section class="max-w-4xl mx-auto px-6 pt-12 pb-20 text-center">
+  <section class="max-w-4xl mx-auto px-6 pt-12 pb-16 text-center">
     <div class="inline-block bg-[#E8E8E0] text-[#4A5D4E] text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
       🌸 Tu Centro de Control Personal con Propósito
     </div>
@@ -38,9 +38,43 @@
       El arte de organizar tu vida, elevar tus hábitos y cambiar tu entorno.
     </h1>
     
-    <p class="text-lg sm:text-xl text-[#6B6663] max-w-2xl mx-auto mb-10 leading-relaxed">
+    <p class="text-lg sm:text-xl text-[#6B6663] max-w-2xl mx-auto mb-12 leading-relaxed">
       Olvídate de las agendas estáticas. Habitua es el sistema digital interactivo que adapta tus rutinas, cuida tus finanzas y transforma tu disciplina diaria en un estilo de vida consciente.
     </p>
+
+    <!-- BLOQUE INFORMATIVO PREVIO AL TEST (EXPLICACIÓN DEL REGALO) -->
+    <div class="max-w-3xl mx-auto mb-8 bg-white border border-[#EFECE6] rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col sm:flex-row gap-6 items-center text-left">
+      <div class="flex-1 space-y-2">
+        <div class="inline-block bg-[#F0F4EC] text-[#4A5D4E] text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-md mb-1">
+          📚 Regalo Exclusivo para la Lista VIP
+        </div>
+        <h2 class="text-xl font-serif font-medium text-[#2C2A29]">
+          Completa tu diagnóstico y recibe el e-book "Diseño de Entorno"
+        </h2>
+        <p class="text-xs sm:text-sm text-[#6B6663] leading-relaxed">
+          Responde el Mapa de Claridad de 5 áreas abajo. Guardaremos tu perfil para la app y te enviaremos de inmediato esta guía táctica para construir hábitos sin depender de la fuerza de voluntad.
+        </p>
+      </div>
+
+      <div class="w-full sm:w-60 bg-[#FAF7F2] p-4 rounded-2xl border border-[#EFECE6] space-y-2 text-xs">
+        <div class="flex justify-between items-center border-b border-[#EFECE6] pb-1.5">
+          <span class="font-bold text-[#8C8581] uppercase text-[10px]">Beneficios VIP</span>
+          <span class="bg-[#A3B18A] text-white font-medium px-1.5 py-0.5 rounded text-[10px]">Incluido</span>
+        </div>
+        <div class="flex justify-between items-center text-[#2C2A29]">
+          <span>📘 E-Book Diseño de Entorno</span>
+          <span class="text-[#A3B18A] font-bold">✓</span>
+        </div>
+        <div class="flex justify-between items-center text-[#2C2A29]">
+          <span>📍 Diagnóstico Sincronizado</span>
+          <span class="text-[#A3B18A] font-bold">✓</span>
+        </div>
+        <div class="flex justify-between items-center text-[#2C2A29]">
+          <span>✨ 30% Descuento Fundadora</span>
+          <span class="text-[#A3B18A] font-bold">✓</span>
+        </div>
+      </div>
+    </div>
 
     <!-- FORMULARIO INTERACTIVO PASO A PASO (MAPA DE CLARIDAD) -->
     <div id="join" class="max-w-lg mx-auto bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#EFECE6] text-left space-y-6">
@@ -60,7 +94,6 @@
             <p class="text-xs text-[#6B6663]">¿Cómo calificas tu vitalidad, descanso e hidratación la mayoría de los días?</p>
           </div>
           <div class="grid grid-cols-5 gap-2 pt-2">
-            <!-- Botones del 1 al 10 -->
             <button type="button" onclick="selectScore('energia', 1)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">1</button>
             <button type="button" onclick="selectScore('energia', 2)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">2</button>
             <button type="button" onclick="selectScore('energia', 3)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">3</button>
@@ -196,7 +229,7 @@
     </div>
 
     <p class="text-xs text-[#8C8581] mt-3">
-      📚 <strong>Regalo inmediato:</strong> E-book <i>"Diseño de Entorno"</i> al completar los 5 pasos del test.
+      🔒 Tus respuestas se guardan de forma privada para sincronizar con tu perfil VIP.
     </p>
   </section>
 
@@ -328,60 +361,6 @@
     </div>
   </section>
 
-  <!-- SECCIÓN EL MAPA DE CLARIDAD Y EL LIBRO DE REGALO -->
-  <section class="max-w-5xl mx-auto px-6 py-12 mb-20">
-    <div class="bg-white border border-[#EFECE6] rounded-3xl p-8 sm:p-12 shadow-sm flex flex-col md:flex-row gap-8 items-center">
-      
-      <div class="flex-1 space-y-4 text-left">
-        <div class="inline-block bg-[#F0F4EC] text-[#4A5D4E] text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-md">
-          📚 Regalo Exclusivo para la Lista VIP
-        </div>
-        <h2 class="text-3xl font-serif font-medium text-[#2C2A29]">
-          Completa tu diagnóstico y recibe el e-book "Diseño de Entorno"
-        </h2>
-        <p class="text-sm sm:text-base text-[#6B6663] leading-relaxed">
-          Responde tu Mapa de Claridad de 5 áreas clave. Al enviar tus respuestas guardaremos tu perfil para la app y te enviaremos de inmediato esta guía táctica para construir hábitos sin depender de la fuerza de voluntad.
-        </p>
-        <p class="text-sm text-[#6B6663] leading-relaxed">
-          <strong>¿La magia de Habitua?</strong> Al hacer upgrade y lanzar la aplicación, tu perfil registrado activará automáticamente tus <i>Rutas de Mejora Interactivas</i> personalizadas.
-        </p>
-        <div class="pt-2">
-          <a href="#join" class="inline-block bg-[#A3B18A] hover:bg-[#8A9A71] text-white text-sm font-medium px-6 py-3 rounded-xl transition-all shadow-sm">
-            Completar mi Diagnóstico →
-          </a>
-        </div>
-      </div>
-
-      <!-- TARJETA VISUAL DEL MÓDULO DE REGALO Y SINCRONIZACIÓN -->
-      <div class="w-full md:w-80 bg-[#FAF7F2] p-6 rounded-2xl border border-[#EFECE6] space-y-4">
-        <div class="flex items-center justify-between border-b border-[#EFECE6] pb-3">
-          <span class="text-xs font-bold text-[#8C8581] uppercase">Recurso VIP Adjunto</span>
-          <span class="text-xs bg-[#A3B18A] text-white font-medium px-2 py-0.5 rounded">PDF Gratis</span>
-        </div>
-        
-        <div class="space-y-2">
-          <div class="p-3 bg-white rounded-xl border border-[#EFECE6] flex justify-between items-center text-xs">
-            <span>📘 E-Book Diseño de Entorno</span>
-            <span class="text-[#A3B18A] font-semibold">Incluido</span>
-          </div>
-          <div class="p-3 bg-white rounded-xl border border-[#EFECE6] flex justify-between items-center text-xs">
-            <span>📍 Perfil de Claridad Guardado</span>
-            <span class="text-[#A3B18A] font-semibold">Listo</span>
-          </div>
-          <div class="p-3 bg-white rounded-xl border border-[#EFECE6] flex justify-between items-center text-xs">
-            <span>✨ 30% Descuento Fundadora</span>
-            <span class="text-[#A3B18A] font-semibold">Reservado</span>
-          </div>
-        </div>
-
-        <p class="text-[11px] text-center text-[#8C8581] italic">
-          🔒 Guardamos tus datos en tu perfil VIP para conectar tu estrategia personalizada.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
   <!-- ECOSISTEMA Y PROPÓSITO -->
   <section class="bg-[#F0F4EC] py-20 px-6 border-y border-[#E2EADA]">
     <div class="max-w-4xl mx-auto text-center space-y-6">
@@ -422,25 +401,16 @@
     const totalSteps = 6;
 
     function selectScore(field, score) {
-      // Guardar el valor en el input hidden correspondiente
       document.getElementById(`score_${field}`).value = score;
-      
-      // Avanzar al siguiente paso
       nextStep();
     }
 
     function nextStep() {
       if (currentStep < totalSteps) {
-        // Ocultar paso actual
         document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.add('hidden');
-        
-        // Incrementar paso
         currentStep++;
-        
-        // Mostrar siguiente paso
         document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.remove('hidden');
         
-        // Actualizar indicador
         if (currentStep === 6) {
           document.getElementById('step-indicator').innerText = `Paso Final: Registro VIP`;
         } else {
