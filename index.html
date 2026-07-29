@@ -42,69 +42,161 @@
       Olvídate de las agendas estáticas. Habitua es el sistema digital interactivo que adapta tus rutinas, cuida tus finanzas y transforma tu disciplina diaria en un estilo de vida consciente.
     </p>
 
-    <!-- FORMULARIO DE INICIO / MAPA DE CLARIDAD -->
-    <div id="join" class="max-w-md mx-auto bg-white p-6 rounded-2xl shadow-sm border border-[#EFECE6] text-left space-y-4">
-      <div class="text-center space-y-1">
-        <h3 class="font-serif text-lg font-medium text-[#2C2A29]">
-          Realiza tu Mapa de Claridad 📍
-        </h3>
-        <p class="text-xs text-[#6B6663]">
-          Completa tus datos para guardar tus respuestas e inmediatamente recibir tu e-book de regalo.
-        </p>
+    <!-- FORMULARIO INTERACTIVO PASO A PASO (MAPA DE CLARIDAD) -->
+    <div id="join" class="max-w-lg mx-auto bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#EFECE6] text-left space-y-6">
+      
+      <!-- Indicador de Progreso -->
+      <div class="flex items-center justify-between border-b border-[#F5F2EB] pb-3">
+        <span class="text-xs font-semibold text-[#8C8581] uppercase tracking-wider" id="step-indicator">Paso 1 de 6</span>
+        <span class="text-xs bg-[#F0F4EC] text-[#4A5D4E] font-medium px-2.5 py-1 rounded-full">Mapa de Claridad 📍</span>
       </div>
 
-      <form id="waitlist-form" action="TU_LINK_DE_BEACONS_O_WEBHOOK" method="POST" class="space-y-3">
-        <div>
-          <label class="block text-xs font-semibold text-[#8C8581] uppercase mb-1">Nombre</label>
-          <input 
-            type="text" 
-            name="nombre" 
-            id="name-input"
-            required
-            placeholder="Tu nombre completo..."
-            class="w-full px-4 py-3 rounded-xl bg-[#FDFBF7] text-sm focus:outline-none focus:ring-2 focus:ring-[#A3B18A] border border-[#EFECE6]"
-          />
+      <form id="clarity-quiz-form" action="TU_LINK_DE_BEACONS_O_WEBHOOK" method="POST">
+        
+        <!-- PASO 1: ENERGÍA -->
+        <div class="quiz-step space-y-4" data-step="1">
+          <div class="space-y-1">
+            <h3 class="font-serif text-lg font-medium text-[#2C2A29]">1. ⚡ Energía & Bienestar Físico</h3>
+            <p class="text-xs text-[#6B6663]">¿Cómo calificas tu vitalidad, descanso e hidratación la mayoría de los días?</p>
+          </div>
+          <div class="grid grid-cols-5 gap-2 pt-2">
+            <!-- Botones del 1 al 10 -->
+            <button type="button" onclick="selectScore('energia', 1)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">1</button>
+            <button type="button" onclick="selectScore('energia', 2)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">2</button>
+            <button type="button" onclick="selectScore('energia', 3)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">3</button>
+            <button type="button" onclick="selectScore('energia', 4)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">4</button>
+            <button type="button" onclick="selectScore('energia', 5)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">5</button>
+            <button type="button" onclick="selectScore('energia', 6)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">6</button>
+            <button type="button" onclick="selectScore('energia', 7)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">7</button>
+            <button type="button" onclick="selectScore('energia', 8)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">8</button>
+            <button type="button" onclick="selectScore('energia', 9)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">9</button>
+            <button type="button" onclick="selectScore('energia', 10)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">10</button>
+          </div>
+          <input type="hidden" name="score_energia" id="score_energia" required />
         </div>
 
-        <div>
-          <label class="block text-xs font-semibold text-[#8C8581] uppercase mb-1">Correo Electrónico</label>
-          <input 
-            type="email" 
-            name="email" 
-            id="email-input"
-            required
-            placeholder="Tu correo electrónico..."
-            class="w-full px-4 py-3 rounded-xl bg-[#FDFBF7] text-sm focus:outline-none focus:ring-2 focus:ring-[#A3B18A] border border-[#EFECE6]"
-          />
+        <!-- PASO 2: CLARIDAD MENTAL -->
+        <div class="quiz-step hidden space-y-4" data-step="2">
+          <div class="space-y-1">
+            <h3 class="font-serif text-lg font-medium text-[#2C2A29]">2. 🧠 Claridad Mental & Enfoque</h3>
+            <p class="text-xs text-[#6B6663]">¿Qué tan libre te sientes del ruido digital, notificaciones y distracciones?</p>
+          </div>
+          <div class="grid grid-cols-5 gap-2 pt-2">
+            <button type="button" onclick="selectScore('claridad', 1)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">1</button>
+            <button type="button" onclick="selectScore('claridad', 2)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">2</button>
+            <button type="button" onclick="selectScore('claridad', 3)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">3</button>
+            <button type="button" onclick="selectScore('claridad', 4)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">4</button>
+            <button type="button" onclick="selectScore('claridad', 5)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">5</button>
+            <button type="button" onclick="selectScore('claridad', 6)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">6</button>
+            <button type="button" onclick="selectScore('claridad', 7)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">7</button>
+            <button type="button" onclick="selectScore('claridad', 8)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">8</button>
+            <button type="button" onclick="selectScore('claridad', 9)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">9</button>
+            <button type="button" onclick="selectScore('claridad', 10)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">10</button>
+          </div>
+          <input type="hidden" name="score_claridad" id="score_claridad" required />
         </div>
 
-        <div>
-          <label class="block text-xs font-semibold text-[#8C8581] uppercase mb-1">WhatsApp / Teléfono</label>
-          <input 
-            type="tel" 
-            name="phone" 
-            id="phone-input"
-            required
-            placeholder="+1234567890..."
-            class="w-full px-4 py-3 rounded-xl bg-[#FDFBF7] text-sm focus:outline-none focus:ring-2 focus:ring-[#A3B18A] border border-[#EFECE6]"
-          />
+        <!-- PASO 3: PAZ FINANCIERA -->
+        <div class="quiz-step hidden space-y-4" data-step="3">
+          <div class="space-y-1">
+            <h3 class="font-serif text-lg font-medium text-[#2C2A29]">3. 💳 Paz Financiera & Presupuesto</h3>
+            <p class="text-xs text-[#6B6663]">¿Qué tan bajo control tienes el destino de tu dinero y tus metas de ahorro?</p>
+          </div>
+          <div class="grid grid-cols-5 gap-2 pt-2">
+            <button type="button" onclick="selectScore('finanzas', 1)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">1</button>
+            <button type="button" onclick="selectScore('finanzas', 2)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">2</button>
+            <button type="button" onclick="selectScore('finanzas', 3)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">3</button>
+            <button type="button" onclick="selectScore('finanzas', 4)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">4</button>
+            <button type="button" onclick="selectScore('finanzas', 5)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">5</button>
+            <button type="button" onclick="selectScore('finanzas', 6)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">6</button>
+            <button type="button" onclick="selectScore('finanzas', 7)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">7</button>
+            <button type="button" onclick="selectScore('finanzas', 8)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">8</button>
+            <button type="button" onclick="selectScore('finanzas', 9)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">9</button>
+            <button type="button" onclick="selectScore('finanzas', 10)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">10</button>
+          </div>
+          <input type="hidden" name="score_finanzas" id="score_finanzas" required />
         </div>
 
-        <button 
-          type="submit"
-          class="w-full bg-[#A3B18A] hover:bg-[#8A9A71] text-white text-sm font-medium py-3.5 rounded-xl transition-all shadow-sm mt-2"
-        >
-          Guardar mi Diagnóstico y Recibir E-book →
-        </button>
+        <!-- PASO 4: RUTINAS -->
+        <div class="quiz-step hidden space-y-4" data-step="4">
+          <div class="space-y-1">
+            <h3 class="font-serif text-lg font-medium text-[#2C2A29]">4. 🌿 Constancia & Rutinas</h3>
+            <p class="text-xs text-[#6B6663]">¿Qué tan fácil se te hace cumplir los compromisos que te haces a ti mismo/a?</p>
+          </div>
+          <div class="grid grid-cols-5 gap-2 pt-2">
+            <button type="button" onclick="selectScore('rutinas', 1)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">1</button>
+            <button type="button" onclick="selectScore('rutinas', 2)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">2</button>
+            <button type="button" onclick="selectScore('rutinas', 3)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">3</button>
+            <button type="button" onclick="selectScore('rutinas', 4)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">4</button>
+            <button type="button" onclick="selectScore('rutinas', 5)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">5</button>
+            <button type="button" onclick="selectScore('rutinas', 6)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">6</button>
+            <button type="button" onclick="selectScore('rutinas', 7)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">7</button>
+            <button type="button" onclick="selectScore('rutinas', 8)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">8</button>
+            <button type="button" onclick="selectScore('rutinas', 9)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">9</button>
+            <button type="button" onclick="selectScore('rutinas', 10)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">10</button>
+          </div>
+          <input type="hidden" name="score_rutinas" id="score_rutinas" required />
+        </div>
+
+        <!-- PASO 5: TIEMPO PARA TI -->
+        <div class="quiz-step hidden space-y-4" data-step="5">
+          <div class="space-y-1">
+            <h3 class="font-serif text-lg font-medium text-[#2C2A29]">5. ✨ Tiempo para lo Importante</h3>
+            <p class="text-xs text-[#6B6663]">¿Te queda espacio al final de la semana para descansar o avanzar proyectos propios?</p>
+          </div>
+          <div class="grid grid-cols-5 gap-2 pt-2">
+            <button type="button" onclick="selectScore('tiempo', 1)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">1</button>
+            <button type="button" onclick="selectScore('tiempo', 2)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">2</button>
+            <button type="button" onclick="selectScore('tiempo', 3)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">3</button>
+            <button type="button" onclick="selectScore('tiempo', 4)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">4</button>
+            <button type="button" onclick="selectScore('tiempo', 5)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">5</button>
+            <button type="button" onclick="selectScore('tiempo', 6)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">6</button>
+            <button type="button" onclick="selectScore('tiempo', 7)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">7</button>
+            <button type="button" onclick="selectScore('tiempo', 8)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">8</button>
+            <button type="button" onclick="selectScore('tiempo', 9)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">9</button>
+            <button type="button" onclick="selectScore('tiempo', 10)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">10</button>
+          </div>
+          <input type="hidden" name="score_tiempo" id="score_tiempo" required />
+        </div>
+
+        <!-- PASO 6: CAPTURA DE DATOS FINAL Y REGALO -->
+        <div class="quiz-step hidden space-y-4" data-step="6">
+          <div class="space-y-1">
+            <h3 class="font-serif text-xl font-medium text-[#2C2A29]">🎉 ¡Diagnóstico Completado!</h3>
+            <p class="text-xs text-[#6B6663]">Déjanos tus datos para vincular tus respuestas a tu acceso VIP y enviarte de inmediato tu e-book de regalo <strong>Diseño de Entorno</strong>.</p>
+          </div>
+
+          <div class="space-y-3 pt-2">
+            <div>
+              <label class="block text-xs font-semibold text-[#8C8581] uppercase mb-1">Nombre Completo</label>
+              <input type="text" name="nombre" required placeholder="Tu nombre..." class="w-full px-4 py-3 rounded-xl bg-[#FDFBF7] text-sm focus:outline-none focus:ring-2 focus:ring-[#A3B18A] border border-[#EFECE6]" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-[#8C8581] uppercase mb-1">Correo Electrónico</label>
+              <input type="email" name="email" required placeholder="tu@correo.com..." class="w-full px-4 py-3 rounded-xl bg-[#FDFBF7] text-sm focus:outline-none focus:ring-2 focus:ring-[#A3B18A] border border-[#EFECE6]" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-[#8C8581] uppercase mb-1">WhatsApp / Teléfono</label>
+              <input type="tel" name="phone" required placeholder="+1 234 567 8900..." class="w-full px-4 py-3 rounded-xl bg-[#FDFBF7] text-sm focus:outline-none focus:ring-2 focus:ring-[#A3B18A] border border-[#EFECE6]" />
+            </div>
+
+            <button type="submit" class="w-full bg-[#A3B18A] hover:bg-[#8A9A71] text-white text-sm font-medium py-3.5 rounded-xl transition-all shadow-sm mt-2">
+              Guardar Diagnóstico y Enviar E-book →
+            </button>
+          </div>
+        </div>
+
       </form>
 
       <div id="success-message" class="hidden p-4 text-center text-[#4A5D4E] font-medium text-sm bg-[#F0F4EC] rounded-xl border border-[#E2EADA]">
-        ✨ ¡Diagnóstico guardado! Te hemos enviado un correo con tu acceso prioritario y tu e-book <i>Diseño de Entorno</i>.
+        ✨ ¡Diagnóstico guardado con éxito! Revisa tu bandeja de entrada en unos segundos para descargar tu e-book <i>Diseño de Entorno</i>.
       </div>
     </div>
 
     <p class="text-xs text-[#8C8581] mt-3">
-      📚 <strong>Regalo inmediato:</strong> Recibe el e-book <i>"Diseño de Entorno: Cómo construir hábitos sin fuerza de voluntad"</i> al registrarte.
+      📚 <strong>Regalo inmediato:</strong> E-book <i>"Diseño de Entorno"</i> al completar los 5 pasos del test.
     </p>
   </section>
 
@@ -169,7 +261,7 @@
     </div>
   </section>
 
-  <!-- POR QUÉ NO FUNCIONAN LOS PDFS Y MÉTODOS TRADICIONALES -->
+  <!-- POR QUÉ NO FUNCIONAN LOS MÉTODOS TRADICIONALES -->
   <section class="max-w-4xl mx-auto px-6 py-16 mb-20">
     <h2 class="text-3xl font-serif text-center mb-12">
       ¿Por qué las agendas y los PDF estáticos terminan en el olvido?
@@ -323,6 +415,40 @@
       © 2026 habitua.life — Un producto del ecosistema Altrua.
     </div>
   </footer>
+
+  <!-- SCRIPT PARA EL QUIZ INTERACTIVO PASO A PASO -->
+  <script>
+    let currentStep = 1;
+    const totalSteps = 6;
+
+    function selectScore(field, score) {
+      // Guardar el valor en el input hidden correspondiente
+      document.getElementById(`score_${field}`).value = score;
+      
+      // Avanzar al siguiente paso
+      nextStep();
+    }
+
+    function nextStep() {
+      if (currentStep < totalSteps) {
+        // Ocultar paso actual
+        document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.add('hidden');
+        
+        // Incrementar paso
+        currentStep++;
+        
+        // Mostrar siguiente paso
+        document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.remove('hidden');
+        
+        // Actualizar indicador
+        if (currentStep === 6) {
+          document.getElementById('step-indicator').innerText = `Paso Final: Registro VIP`;
+        } else {
+          document.getElementById('step-indicator').innerText = `Paso ${currentStep} de 6`;
+        }
+      }
+    }
+  </script>
 
   <!-- Carga de tu archivo de JavaScript -->
   <script src="app.js"></script>
