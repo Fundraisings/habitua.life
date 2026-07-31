@@ -1,110 +1,185 @@
+// ==========================================================================
+// CONFIGURACIÓN — reemplazar con tus valores reales antes de publicar
+// ==========================================================================
 const SUPABASE_URL = 'https://wwnyjfftrujydapeqxxx.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_eJPhRFf1ejrhwYTooJYMJA_DI6_bMz0';
 
-// 🔑 Pega aquí tu API Key de Resend (empieza por re_...)
-const RESEND_API_KEY = 'PEGA_AQUI_TU_RESEND_API_KEY';
+// Link del producto gratuito en Payhip (checkout que entrega el ebook)
+// TODO Tom: reemplazar con el link real del producto "Diseño de Entorno" en Payhip
+const PAYHIP_URL = 'https://payhip.com/b/REEMPLAZAR';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const waitlistForm = document.getElementById('waitlist-form');
-  const emailInput = document.getElementById('email-input');
-  const successMessage = document.getElementById('success-message');
+// Si tu plan de Payhip permite pre-rellenar el correo por URL, cambia esto a true
+// y ajusta PAYHIP_EMAIL_PARAM al nombre exacto del parámetro que use Payhip.
+const PAYHIP_PREFILL_EMAIL = false;
+const PAYHIP_EMAIL_PARAM = 'email';
 
-  if (waitlistForm) {
-    waitlistForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const email = emailInput.value.trim();
-      if (!email) return;
+// ==========================================================================
+// ESTADO DEL QUIZ
+// ==========================================================================
+let currentStep = 1;
+const totalQuestionSteps = 4; // energía, claridad, entorno, tiempo
+const scores = { energia: null, claridad: null, entorno: null, tiempo: null };
 
-      try {
-        // 1. Guardar el correo en Supabase
-        const dbResponse = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'apikey': SUPABASE_ANON_KEY,
-            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-            'Prefer': 'return=minimal'
-          },
-          body: JSON.stringify({ email: email })
-        });
-
-        if (dbResponse.ok) {
-          // Mostrar mensaje de éxito inmediatamente
-          waitlistForm.classList.add('hidden');
-          successMessage.classList.remove('hidden');
-
-          // 2. Enviar el correo de bienvenida vía Resend
-          sendWelcomeEmail(email);
-
-        } else {
-          const errorData = await dbResponse.json().catch(() => ({}));
-          
-          if (dbResponse.status === 409 || (errorData.message && errorData.message.includes('unique'))) {
-            alert('¡Este correo ya está registrado en la lista VIP!');
-          } else {
-            alert('Hubo un inconveniente al guardar. Por favor intenta nuevamente.');
-          }
-        }
-      } catch (error) {
-        console.error('Error de conexión:', error);
-        alert('Error de conexión. Por favor intenta de nuevo.');
-      }
-    });
+const PILLARS = {
+  energia: {
+    label: '⚡ Energía & Bienestar Físico',
+    fortaleza: 'Tu cuerpo ya te está sosteniendo — tienes una base sólida para construir sobre ella.',
+    oportunidad: 'Tu energía es el motor de todo lo demás. Un pequeño ajuste aquí puede destrabar el resto.'
+  },
+  claridad: {
+    label: '🧠 Claridad Mental & Enfoque',
+    fortaleza: 'Tienes una mente que sabe filtrar el ruido — eso es más raro de lo que crees.',
+    oportunidad: 'Tu mente está pidiendo espacio. No es falta de disciplina, es falta de silencio.'
+  },
+  entorno: {
+    label: '🌿 Entorno & Constancia',
+    fortaleza: 'Tu entorno ya está trabajando a tu favor — eso hace que la constancia se sienta natural.',
+    oportunidad: 'Tu entorno tiene más poder sobre tus hábitos del que imaginas. Ahí está tu punto de apalancamiento.'
+  },
+  tiempo: {
+    label: '✨ Tiempo con Propósito',
+    fortaleza: 'Sabes proteger tu tiempo para lo que de verdad importa — no todos lo logran.',
+    oportunidad: 'Tu tiempo se está yendo en piloto automático. Recuperarlo empieza con una decisión pequeña, no con una revolución.'
   }
-});
+};
 
-// Función para enviar el correo directamente a la API de Resend
-async function sendWelcomeEmail(userEmail) {
+// Orden fijo para desempatar (si hay empate en el más bajo, gana el primero en este orden)
+const PILLAR_ORDER = ['energia', 'claridad', 'entorno', 'tiempo'];
+
+// ==========================================================================
+// NAVEGACIÓN DEL QUIZ
+// ==========================================================================
+function selectScore(field, value) {
+  scores[field] = value;
+
+  // Marca visualmente el botón elegido dentro del paso actual
+  const currentStepEl = document.querySelector(`.quiz-step[data-step="${currentStep}"]`);
+  if (currentStepEl) {
+    currentStepEl.querySelectorAll('.score-btn').forEach((btn) => btn.classList.remove('selected'));
+    const clicked = [...currentStepEl.querySelectorAll('.score-btn')].find(
+      (btn) => parseInt(btn.textContent, 10) === value
+    );
+    if (clicked) clicked.classList.add('selected');
+  }
+
+  // Pequeña pausa para que se vea la selección antes de avanzar
+  setTimeout(() => {
+    if (currentStep === totalQuestionSteps) {
+      renderResult();
+    }
+    nextStep();
+  }, 150);
+}
+
+function nextStep() {
+  const totalSteps = 6;
+  if (currentStep >= totalSteps) return;
+
+  const current = document.querySelector(`.quiz-step[data-step="${currentStep}"]`);
+  if (current) current.classList.add('hidden');
+
+  currentStep++;
+
+  const next = document.querySelector(`.quiz-step[data-step="${currentStep}"]`);
+  if (next) next.classList.remove('hidden');
+
+  updateStepIndicator();
+}
+
+function updateStepIndicator() {
+  const indicator = document.getElementById('step-indicator');
+  if (!indicator) return;
+
+  if (currentStep <= totalQuestionSteps) {
+    indicator.innerText = `Paso ${currentStep} de ${totalQuestionSteps}`;
+  } else if (currentStep === 5) {
+    indicator.innerText = '✨ Tu Resultado';
+  } else {
+    indicator.innerText = 'Paso Final';
+  }
+}
+
+// ==========================================================================
+// RESULTADO DINÁMICO (fortaleza / oportunidad)
+// ==========================================================================
+function renderResult() {
+  let strongest = PILLAR_ORDER[0];
+  let weakest = PILLAR_ORDER[0];
+
+  PILLAR_ORDER.forEach((key) => {
+    if (scores[key] > scores[strongest]) strongest = key;
+    if (scores[key] < scores[weakest]) weakest = key;
+  });
+
+  document.getElementById('result-strength-title').textContent = PILLARS[strongest].label;
+  document.getElementById('result-strength-text').textContent = PILLARS[strongest].fortaleza;
+  document.getElementById('result-opportunity-title').textContent = PILLARS[weakest].label;
+  document.getElementById('result-opportunity-text').textContent = PILLARS[weakest].oportunidad;
+}
+
+// ==========================================================================
+// ENVÍO FINAL: guarda en Supabase (silencioso) + redirige a Payhip
+// ==========================================================================
+async function submitEmail() {
+  const emailInput = document.getElementById('email-input');
+  const submitBtn = document.getElementById('submit-btn');
+  const errorMessage = document.getElementById('error-message');
+  const email = emailInput.value.trim();
+
+  errorMessage.classList.add('hidden');
+
+  if (!email || !email.includes('@')) {
+    errorMessage.textContent = 'Ingresa un correo válido para continuar.';
+    errorMessage.classList.remove('hidden');
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Guardando...';
+
+  // Guardado silencioso en Supabase — si falla, no bloquea la entrega del ebook
   try {
-    const res = await fetch('https://api.resend.com/emails', {
+    await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${RESEND_API_KEY}`
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'Prefer': 'return=minimal'
       },
       body: JSON.stringify({
-        from: 'Habitua <hola@habitua.life>',
-        to: [userEmail],
-        subject: '✨ Tu lugar como Fundadora en habitua.life está reservado',
-        html: `
-          <div style="font-family: sans-serif; color: #2C2A29; max-width: 600px; margin: 0 auto; padding: 30px; background-color: #FDFBF7; border-radius: 16px; border: 1px solid #EFECE6;">
-            <h2 style="font-family: Georgia, serif; color: #2D3A2F; font-size: 26px; margin-bottom: 20px;">¡Hola! 🌿</h2>
-            <p style="line-height: 1.6; font-size: 15px; color: #4A4745;">
-              Qué alegría darte la bienvenida al grupo oficial de <strong>Fundadoras de habitua.life</strong>.
-            </p>
-            <p style="line-height: 1.6; font-size: 15px; color: #4A4745;">
-              Diseñamos Habitua porque nos cansamos de las agendas estáticas que ignoran cómo nos sentimos cada día. Queríamos un sistema inteligente que se adapte a tu energía, traiga claridad a tus finanzas y te acompañe en tu crecimiento sin agotamiento.
-            </p>
-            <div style="background-color: #F0F4EC; padding: 20px; border-radius: 12px; color: #4A5D4E; margin: 25px 0;">
-              <p style="margin: 0; font-weight: bold; font-size: 15px;">🐾 Tu impacto con nosotros:</p>
-              <p style="margin: 5px 0 0 0; font-size: 14px; line-height: 1.5;">
-                Cada hábito que completes dentro de la plataforma contribuirá a financiar alimento y atención médica para animales en refugios y fundaciones.
-              </p>
-            </div>
-            <h3 style="font-family: Georgia, serif; color: #2D3A2F; font-size: 18px; margin-top: 25px;">🌸 ¿Qué recibes como Fundadora?</h3>
-            <ul style="line-height: 1.8; font-size: 14px; color: #4A4745; padding-left: 20px;">
-              <li><strong>Acceso Preferente Prioritario:</strong> Serás de las primeras personas en probar la plataforma.</li>
-              <li><strong>30% de Descuento Vitalicio:</strong> Tarifa preferencial garantizada de por vida.</li>
-              <li><strong>Voz en la Comunidad:</strong> Podrás darnos feedback para priorizar las herramientas que necesitas.</li>
-            </ul>
-            <p style="line-height: 1.6; font-size: 15px; color: #4A4745; margin-top: 25px;">
-              Te avisaremos por este mismo medio tan pronto abramos el primer lote de accesos.
-            </p>
-            <hr style="border: none; border-top: 1px solid #EFECE6; margin: 30px 0;" />
-            <p style="font-size: 13px; color: #8C8581; margin: 0;">
-              Con cariño,<br>
-              <strong style="color: #2C2A29;">El equipo de Habitua</strong><br>
-              <em>habitua.life — Un producto del ecosistema Altrua.</em>
-            </p>
-          </div>
-        `
+        email: email,
+        score_energia: scores.energia,
+        score_claridad: scores.claridad,
+        score_entorno: scores.entorno,
+        score_tiempo: scores.tiempo
       })
     });
-
-    const data = await res.json();
-    console.log('Respuesta de Resend:', data);
   } catch (err) {
-    console.error('Error al enviar con Resend:', err);
+    console.error('No se pudo guardar el lead en Supabase:', err);
+    // Continúa igual — el usuario no debe perder su ebook por un fallo de backend
   }
+
+  showSuccessAndRedirect(email);
+}
+
+function buildPayhipUrl(email) {
+  if (!PAYHIP_PREFILL_EMAIL) return PAYHIP_URL;
+  const separator = PAYHIP_URL.includes('?') ? '&' : '?';
+  return `${PAYHIP_URL}${separator}${PAYHIP_EMAIL_PARAM}=${encodeURIComponent(email)}`;
+}
+
+function showSuccessAndRedirect(email) {
+  const form = document.getElementById('clarity-quiz-form');
+  const success = document.getElementById('success-message');
+  const fallbackLink = document.getElementById('fallback-link');
+  const destination = buildPayhipUrl(email);
+
+  form.classList.add('hidden');
+  success.classList.remove('hidden');
+  fallbackLink.href = destination;
+
+  setTimeout(() => {
+    window.location.href = destination;
+  }, 900);
 }
