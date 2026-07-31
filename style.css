@@ -4,7 +4,6 @@ body {
   background-color: #FDFBF7;
   color: #2C2A29;
 }
-
 .font-serif {
   font-family: 'Newsreader', serif;
 }
@@ -12,4 +11,40 @@ body {
 /* Transición suave al desplazarse */
 html {
   scroll-behavior: smooth;
+}
+
+/* Botones de puntaje del quiz (1-10) */
+.score-btn {
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid #EFECE6;
+  border-radius: 0.75rem;
+  background-color: #FDFBF7;
+  color: #2C2A29;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.score-btn:hover {
+  background-color: #F0F4EC;
+  border-color: #A3B18A;
+}
+.score-btn:focus-visible {
+  outline: 2px solid #A3B18A;
+  outline-offset: 2px;
+}
+.score-btn.selected {
+  background-color: #A3B18A;
+  border-color: #A3B18A;
+  color: #FDFBF7;
+}
+
+/* Respeta preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .score-btn {
+    transition: none;
+  }
 }
