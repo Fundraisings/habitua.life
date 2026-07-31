@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>habitua.life — Tu Centro de Control Personal con Propósito</title>
-  
+  <title>habitua.life — Sistema Operativo de Vida</title>
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Enlace a tu archivo CSS personalizado -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-[#FDFBF7] text-[#2C2A29] selection:bg-[#E8D8C8]">
@@ -21,72 +20,45 @@
   <!-- NAVEGACIÓN -->
   <nav class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
     <div class="flex items-center gap-2">
-      <span class="text-2xl font-serif font-bold tracking-tight">habitua<span class="text-[#A3B18A]">\</span>life</span>
+      <span class="text-2xl font-serif font-bold tracking-tight">habitua<span class="text-[#A3B18A]">·</span>life</span>
     </div>
-    <a href="#join" class="bg-[#2C2A29] text-[#FDFBF7] text-sm px-5 py-2.5 rounded-full hover:bg-[#4A4745] transition-all font-medium">
-      Lista VIP
+    <a href="#quiz" class="bg-[#2C2A29] text-[#FDFBF7] text-sm px-5 py-2.5 rounded-full hover:bg-[#4A4745] transition-all font-medium">
+      Mapa de Claridad
     </a>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section class="max-w-4xl mx-auto px-6 pt-12 pb-16 text-center">
+  <!-- HERO + QUIZ (todo fusionado, sin tarjeta separada) -->
+  <section class="max-w-4xl mx-auto px-6 pt-10 pb-16 text-center">
     <div class="inline-block bg-[#E8E8E0] text-[#4A5D4E] text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-      🌸 Tu Centro de Control Personal con Propósito
+      🌸 Sistema Operativo de Vida
     </div>
-    
+
     <h1 class="text-4xl sm:text-6xl font-serif font-medium leading-tight mb-6">
-      El arte de organizar tu vida, elevar tus hábitos y cambiar tu entorno.
+      El arte de organizar tu vida, elevar tus hábitos y transformar tu entorno.
     </h1>
-    
-    <p class="text-lg sm:text-xl text-[#6B6663] max-w-2xl mx-auto mb-12 leading-relaxed">
-      Olvídate de las agendas estáticas. Habitua es el sistema digital interactivo que adapta tus rutinas, cuida tus finanzas y transforma tu disciplina diaria en un estilo de vida consciente.
+
+    <p class="text-lg sm:text-xl text-[#6B6663] max-w-2xl mx-auto mb-10 leading-relaxed">
+      Olvídate de las agendas estáticas. Habitua es el sistema digital interactivo que se adapta a tu energía, ordena tu entorno y transforma tu disciplina diaria en un estilo de vida consciente.
     </p>
 
-    <!-- BLOQUE INFORMATIVO PREVIO AL TEST (EXPLICACIÓN DEL REGALO) -->
-    <div class="max-w-3xl mx-auto mb-8 bg-white border border-[#EFECE6] rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col sm:flex-row gap-6 items-center text-left">
-      <div class="flex-1 space-y-2">
-        <div class="inline-block bg-[#F0F4EC] text-[#4A5D4E] text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-md mb-1">
-          📚 Regalo Exclusivo para la Lista VIP
-        </div>
-        <h2 class="text-xl font-serif font-medium text-[#2C2A29]">
-          Completa tu diagnóstico y recibe el e-book "Diseño de Entorno"
-        </h2>
-        <p class="text-xs sm:text-sm text-[#6B6663] leading-relaxed">
-          Responde el Mapa de Claridad de 5 áreas abajo. Guardaremos tu perfil para la app y te enviaremos de inmediato esta guía táctica para construir hábitos sin depender de la fuerza de voluntad.
-        </p>
-      </div>
+    <!-- TARJETA ÚNICA: quiz + regalo, fusionados -->
+    <div id="quiz" class="max-w-lg mx-auto bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#EFECE6] text-left">
 
-      <div class="w-full sm:w-60 bg-[#FAF7F2] p-4 rounded-2xl border border-[#EFECE6] space-y-2 text-xs">
-        <div class="flex justify-between items-center border-b border-[#EFECE6] pb-1.5">
-          <span class="font-bold text-[#8C8581] uppercase text-[10px]">Beneficios VIP</span>
-          <span class="bg-[#A3B18A] text-white font-medium px-1.5 py-0.5 rounded text-[10px]">Incluido</span>
-        </div>
-        <div class="flex justify-between items-center text-[#2C2A29]">
-          <span>📘 E-Book Diseño de Entorno</span>
-          <span class="text-[#A3B18A] font-bold">✓</span>
-        </div>
-        <div class="flex justify-between items-center text-[#2C2A29]">
-          <span>📍 Diagnóstico Sincronizado</span>
-          <span class="text-[#A3B18A] font-bold">✓</span>
-        </div>
-        <div class="flex justify-between items-center text-[#2C2A29]">
-          <span>✨ 30% Descuento Fundadora</span>
-          <span class="text-[#A3B18A] font-bold">✓</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- FORMULARIO INTERACTIVO PASO A PASO (MAPA DE CLARIDAD) -->
-    <div id="join" class="max-w-lg mx-auto bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#EFECE6] text-left space-y-6">
-      
       <!-- Indicador de Progreso -->
-      <div class="flex items-center justify-between border-b border-[#F5F2EB] pb-3">
-        <span class="text-xs font-semibold text-[#8C8581] uppercase tracking-wider" id="step-indicator">Paso 1 de 6</span>
+      <div class="flex items-center justify-between border-b border-[#F5F2EB] pb-3 mb-6">
+        <span class="text-xs font-semibold text-[#8C8581] uppercase tracking-wider" id="step-indicator">Paso 1 de 4</span>
         <span class="text-xs bg-[#F0F4EC] text-[#4A5D4E] font-medium px-2.5 py-1 rounded-full">Mapa de Claridad 📍</span>
       </div>
 
-      <form id="clarity-quiz-form" action="TU_LINK_DE_BEACONS_O_WEBHOOK" method="POST">
-        
+      <!-- Mensaje del regalo, integrado como parte de la intro del quiz -->
+      <div class="quiz-step space-y-1 mb-5" data-intro="true">
+        <p class="text-xs text-[#6B6663] leading-relaxed">
+          Responde 4 preguntas rápidas y recibe al instante tu diagnóstico personalizado + el ebook de regalo <strong>"Diseño de Entorno"</strong>.
+        </p>
+      </div>
+
+      <form id="clarity-quiz-form">
+
         <!-- PASO 1: ENERGÍA -->
         <div class="quiz-step space-y-4" data-step="1">
           <div class="space-y-1">
@@ -94,18 +66,17 @@
             <p class="text-xs text-[#6B6663]">¿Cómo calificas tu vitalidad, descanso e hidratación la mayoría de los días?</p>
           </div>
           <div class="grid grid-cols-5 gap-2 pt-2">
-            <button type="button" onclick="selectScore('energia', 1)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">1</button>
-            <button type="button" onclick="selectScore('energia', 2)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">2</button>
-            <button type="button" onclick="selectScore('energia', 3)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">3</button>
-            <button type="button" onclick="selectScore('energia', 4)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">4</button>
-            <button type="button" onclick="selectScore('energia', 5)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">5</button>
-            <button type="button" onclick="selectScore('energia', 6)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">6</button>
-            <button type="button" onclick="selectScore('energia', 7)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">7</button>
-            <button type="button" onclick="selectScore('energia', 8)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">8</button>
-            <button type="button" onclick="selectScore('energia', 9)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">9</button>
-            <button type="button" onclick="selectScore('energia', 10)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">10</button>
+            <button type="button" onclick="selectScore('energia', 1)" class="score-btn">1</button>
+            <button type="button" onclick="selectScore('energia', 2)" class="score-btn">2</button>
+            <button type="button" onclick="selectScore('energia', 3)" class="score-btn">3</button>
+            <button type="button" onclick="selectScore('energia', 4)" class="score-btn">4</button>
+            <button type="button" onclick="selectScore('energia', 5)" class="score-btn">5</button>
+            <button type="button" onclick="selectScore('energia', 6)" class="score-btn">6</button>
+            <button type="button" onclick="selectScore('energia', 7)" class="score-btn">7</button>
+            <button type="button" onclick="selectScore('energia', 8)" class="score-btn">8</button>
+            <button type="button" onclick="selectScore('energia', 9)" class="score-btn">9</button>
+            <button type="button" onclick="selectScore('energia', 10)" class="score-btn">10</button>
           </div>
-          <input type="hidden" name="score_energia" id="score_energia" required />
         </div>
 
         <!-- PASO 2: CLARIDAD MENTAL -->
@@ -115,187 +86,124 @@
             <p class="text-xs text-[#6B6663]">¿Qué tan libre te sientes del ruido digital, notificaciones y distracciones?</p>
           </div>
           <div class="grid grid-cols-5 gap-2 pt-2">
-            <button type="button" onclick="selectScore('claridad', 1)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">1</button>
-            <button type="button" onclick="selectScore('claridad', 2)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">2</button>
-            <button type="button" onclick="selectScore('claridad', 3)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">3</button>
-            <button type="button" onclick="selectScore('claridad', 4)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">4</button>
-            <button type="button" onclick="selectScore('claridad', 5)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">5</button>
-            <button type="button" onclick="selectScore('claridad', 6)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">6</button>
-            <button type="button" onclick="selectScore('claridad', 7)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">7</button>
-            <button type="button" onclick="selectScore('claridad', 8)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">8</button>
-            <button type="button" onclick="selectScore('claridad', 9)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">9</button>
-            <button type="button" onclick="selectScore('claridad', 10)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">10</button>
+            <button type="button" onclick="selectScore('claridad', 1)" class="score-btn">1</button>
+            <button type="button" onclick="selectScore('claridad', 2)" class="score-btn">2</button>
+            <button type="button" onclick="selectScore('claridad', 3)" class="score-btn">3</button>
+            <button type="button" onclick="selectScore('claridad', 4)" class="score-btn">4</button>
+            <button type="button" onclick="selectScore('claridad', 5)" class="score-btn">5</button>
+            <button type="button" onclick="selectScore('claridad', 6)" class="score-btn">6</button>
+            <button type="button" onclick="selectScore('claridad', 7)" class="score-btn">7</button>
+            <button type="button" onclick="selectScore('claridad', 8)" class="score-btn">8</button>
+            <button type="button" onclick="selectScore('claridad', 9)" class="score-btn">9</button>
+            <button type="button" onclick="selectScore('claridad', 10)" class="score-btn">10</button>
           </div>
-          <input type="hidden" name="score_claridad" id="score_claridad" required />
         </div>
 
-        <!-- PASO 3: PAZ FINANCIERA -->
+        <!-- PASO 3: ENTORNO & CONSTANCIA -->
         <div class="quiz-step hidden space-y-4" data-step="3">
           <div class="space-y-1">
-            <h3 class="font-serif text-lg font-medium text-[#2C2A29]">3. 💳 Paz Financiera & Presupuesto</h3>
-            <p class="text-xs text-[#6B6663]">¿Qué tan bajo control tienes el destino de tu dinero y tus metas de ahorro?</p>
+            <h3 class="font-serif text-lg font-medium text-[#2C2A29]">3. 🌿 Entorno & Constancia</h3>
+            <p class="text-xs text-[#6B6663]">¿Qué tan alineado sientes tu espacio —físico y mental— con la persona en la que te quieres convertir?</p>
           </div>
           <div class="grid grid-cols-5 gap-2 pt-2">
-            <button type="button" onclick="selectScore('finanzas', 1)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">1</button>
-            <button type="button" onclick="selectScore('finanzas', 2)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">2</button>
-            <button type="button" onclick="selectScore('finanzas', 3)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">3</button>
-            <button type="button" onclick="selectScore('finanzas', 4)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">4</button>
-            <button type="button" onclick="selectScore('finanzas', 5)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">5</button>
-            <button type="button" onclick="selectScore('finanzas', 6)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">6</button>
-            <button type="button" onclick="selectScore('finanzas', 7)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">7</button>
-            <button type="button" onclick="selectScore('finanzas', 8)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">8</button>
-            <button type="button" onclick="selectScore('finanzas', 9)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">9</button>
-            <button type="button" onclick="selectScore('finanzas', 10)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">10</button>
+            <button type="button" onclick="selectScore('entorno', 1)" class="score-btn">1</button>
+            <button type="button" onclick="selectScore('entorno', 2)" class="score-btn">2</button>
+            <button type="button" onclick="selectScore('entorno', 3)" class="score-btn">3</button>
+            <button type="button" onclick="selectScore('entorno', 4)" class="score-btn">4</button>
+            <button type="button" onclick="selectScore('entorno', 5)" class="score-btn">5</button>
+            <button type="button" onclick="selectScore('entorno', 6)" class="score-btn">6</button>
+            <button type="button" onclick="selectScore('entorno', 7)" class="score-btn">7</button>
+            <button type="button" onclick="selectScore('entorno', 8)" class="score-btn">8</button>
+            <button type="button" onclick="selectScore('entorno', 9)" class="score-btn">9</button>
+            <button type="button" onclick="selectScore('entorno', 10)" class="score-btn">10</button>
           </div>
-          <input type="hidden" name="score_finanzas" id="score_finanzas" required />
         </div>
 
-        <!-- PASO 4: RUTINAS -->
+        <!-- PASO 4: TIEMPO CON PROPÓSITO -->
         <div class="quiz-step hidden space-y-4" data-step="4">
           <div class="space-y-1">
-            <h3 class="font-serif text-lg font-medium text-[#2C2A29]">4. 🌿 Constancia & Rutinas</h3>
-            <p class="text-xs text-[#6B6663]">¿Qué tan fácil se te hace cumplir los compromisos que te haces a ti mismo/a?</p>
+            <h3 class="font-serif text-lg font-medium text-[#2C2A29]">4. ✨ Tiempo con Propósito</h3>
+            <p class="text-xs text-[#6B6663]">¿Te queda espacio al final de la semana para lo que realmente te importa, sin sentir que vas corriendo?</p>
           </div>
           <div class="grid grid-cols-5 gap-2 pt-2">
-            <button type="button" onclick="selectScore('rutinas', 1)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">1</button>
-            <button type="button" onclick="selectScore('rutinas', 2)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">2</button>
-            <button type="button" onclick="selectScore('rutinas', 3)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">3</button>
-            <button type="button" onclick="selectScore('rutinas', 4)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">4</button>
-            <button type="button" onclick="selectScore('rutinas', 5)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">5</button>
-            <button type="button" onclick="selectScore('rutinas', 6)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">6</button>
-            <button type="button" onclick="selectScore('rutinas', 7)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">7</button>
-            <button type="button" onclick="selectScore('rutinas', 8)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">8</button>
-            <button type="button" onclick="selectScore('rutinas', 9)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">9</button>
-            <button type="button" onclick="selectScore('rutinas', 10)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">10</button>
+            <button type="button" onclick="selectScore('tiempo', 1)" class="score-btn">1</button>
+            <button type="button" onclick="selectScore('tiempo', 2)" class="score-btn">2</button>
+            <button type="button" onclick="selectScore('tiempo', 3)" class="score-btn">3</button>
+            <button type="button" onclick="selectScore('tiempo', 4)" class="score-btn">4</button>
+            <button type="button" onclick="selectScore('tiempo', 5)" class="score-btn">5</button>
+            <button type="button" onclick="selectScore('tiempo', 6)" class="score-btn">6</button>
+            <button type="button" onclick="selectScore('tiempo', 7)" class="score-btn">7</button>
+            <button type="button" onclick="selectScore('tiempo', 8)" class="score-btn">8</button>
+            <button type="button" onclick="selectScore('tiempo', 9)" class="score-btn">9</button>
+            <button type="button" onclick="selectScore('tiempo', 10)" class="score-btn">10</button>
           </div>
-          <input type="hidden" name="score_rutinas" id="score_rutinas" required />
         </div>
 
-        <!-- PASO 5: TIEMPO PARA TI -->
+        <!-- PASO 5: RESULTADO DINÁMICO -->
         <div class="quiz-step hidden space-y-4" data-step="5">
           <div class="space-y-1">
-            <h3 class="font-serif text-lg font-medium text-[#2C2A29]">5. ✨ Tiempo para lo Importante</h3>
-            <p class="text-xs text-[#6B6663]">¿Te queda espacio al final de la semana para descansar o avanzar proyectos propios?</p>
+            <h3 class="font-serif text-xl font-medium text-[#2C2A29]">🎉 Tu Mapa de Claridad está listo</h3>
           </div>
-          <div class="grid grid-cols-5 gap-2 pt-2">
-            <button type="button" onclick="selectScore('tiempo', 1)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">1</button>
-            <button type="button" onclick="selectScore('tiempo', 2)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">2</button>
-            <button type="button" onclick="selectScore('tiempo', 3)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">3</button>
-            <button type="button" onclick="selectScore('tiempo', 4)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">4</button>
-            <button type="button" onclick="selectScore('tiempo', 5)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">5</button>
-            <button type="button" onclick="selectScore('tiempo', 6)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">6</button>
-            <button type="button" onclick="selectScore('tiempo', 7)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">7</button>
-            <button type="button" onclick="selectScore('tiempo', 8)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">8</button>
-            <button type="button" onclick="selectScore('tiempo', 9)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">9</button>
-            <button type="button" onclick="selectScore('tiempo', 10)" class="score-btn p-2 text-xs font-semibold border border-[#EFECE6] rounded-xl hover:bg-[#F0F4EC] hover:border-[#A3B18A] transition-all">10</button>
+
+          <div class="bg-[#F0F4EC] border border-[#E2EADA] rounded-2xl p-4 space-y-3">
+            <div>
+              <p class="text-[11px] font-semibold text-[#4A5D4E] uppercase tracking-wider mb-1">Tu fortaleza</p>
+              <p class="text-sm font-medium text-[#2C2A29]" id="result-strength-title"></p>
+              <p class="text-sm text-[#4A5D4E] leading-relaxed mt-1" id="result-strength-text"></p>
+            </div>
+            <div class="border-t border-[#E2EADA] pt-3">
+              <p class="text-[11px] font-semibold text-[#4A5D4E] uppercase tracking-wider mb-1">Tu oportunidad</p>
+              <p class="text-sm font-medium text-[#2C2A29]" id="result-opportunity-title"></p>
+              <p class="text-sm text-[#4A5D4E] leading-relaxed mt-1" id="result-opportunity-text"></p>
+            </div>
           </div>
-          <input type="hidden" name="score_tiempo" id="score_tiempo" required />
+
+          <p class="text-xs text-[#6B6663] leading-relaxed">
+            Por eso preparamos algo específico para ti: el ebook <strong>"Diseño de Entorno"</strong> — tu punto de partida para trabajar justo en tu área de oportunidad.
+          </p>
+
+          <button type="button" onclick="nextStep()" class="w-full bg-[#A3B18A] hover:bg-[#8A9A71] text-white text-sm font-medium py-3.5 rounded-xl transition-all shadow-sm">
+            Ver cómo reclamar mi ebook →
+          </button>
         </div>
 
-        <!-- PASO 6: CAPTURA DE DATOS FINAL Y REGALO -->
+        <!-- PASO 6: CAPTURA DE CORREO -->
         <div class="quiz-step hidden space-y-4" data-step="6">
           <div class="space-y-1">
-            <h3 class="font-serif text-xl font-medium text-[#2C2A29]">🎉 ¡Diagnóstico Completado!</h3>
-            <p class="text-xs text-[#6B6663]">Déjanos tus datos para vincular tus respuestas a tu acceso VIP y enviarte de inmediato tu e-book de regalo <strong>Diseño de Entorno</strong>.</p>
+            <h3 class="font-serif text-xl font-medium text-[#2C2A29]">Recibe tu ebook + guarda tu resultado</h3>
+            <p class="text-xs text-[#6B6663] leading-relaxed">
+              Déjanos tu correo para enviarte de inmediato <em>Diseño de Entorno</em> y guardar tu Mapa de Claridad, así podrás ver tu progreso más adelante.
+            </p>
           </div>
 
-          <div class="space-y-3 pt-2">
-            <div>
-              <label class="block text-xs font-semibold text-[#8C8581] uppercase mb-1">Nombre Completo</label>
-              <input type="text" name="nombre" required placeholder="Tu nombre..." class="w-full px-4 py-3 rounded-xl bg-[#FDFBF7] text-sm focus:outline-none focus:ring-2 focus:ring-[#A3B18A] border border-[#EFECE6]" />
-            </div>
-
-            <div>
-              <label class="block text-xs font-semibold text-[#8C8581] uppercase mb-1">Correo Electrónico</label>
-              <input type="email" name="email" required placeholder="tu@correo.com..." class="w-full px-4 py-3 rounded-xl bg-[#FDFBF7] text-sm focus:outline-none focus:ring-2 focus:ring-[#A3B18A] border border-[#EFECE6]" />
-            </div>
-
-            <div>
-              <label class="block text-xs font-semibold text-[#8C8581] uppercase mb-1">WhatsApp / Teléfono</label>
-              <input type="tel" name="phone" required placeholder="+1 234 567 8900..." class="w-full px-4 py-3 rounded-xl bg-[#FDFBF7] text-sm focus:outline-none focus:ring-2 focus:ring-[#A3B18A] border border-[#EFECE6]" />
-            </div>
-
-            <button type="submit" class="w-full bg-[#A3B18A] hover:bg-[#8A9A71] text-white text-sm font-medium py-3.5 rounded-xl transition-all shadow-sm mt-2">
-              Guardar Diagnóstico y Enviar E-book →
-            </button>
+          <div>
+            <label class="block text-xs font-semibold text-[#8C8581] uppercase mb-1">Correo Electrónico</label>
+            <input type="email" id="email-input" required placeholder="tu@correo.com" class="w-full px-4 py-3 rounded-xl bg-[#FDFBF7] text-sm focus:outline-none focus:ring-2 focus:ring-[#A3B18A] border border-[#EFECE6]" />
           </div>
+
+          <button type="button" id="submit-btn" onclick="submitEmail()" class="w-full bg-[#A3B18A] hover:bg-[#8A9A71] text-white text-sm font-medium py-3.5 rounded-xl transition-all shadow-sm">
+            Reclamar mi Ebook Gratis →
+          </button>
+
+          <p class="text-xs text-[#8C8581] text-center">
+            🔒 Tu correo solo se usa para enviarte el ebook y guardar tu progreso. Sin spam.
+          </p>
         </div>
 
       </form>
 
-      <div id="success-message" class="hidden p-4 text-center text-[#4A5D4E] font-medium text-sm bg-[#F0F4EC] rounded-xl border border-[#E2EADA]">
-        ✨ ¡Diagnóstico guardado con éxito! Revisa tu bandeja de entrada en unos segundos para descargar tu e-book <i>Diseño de Entorno</i>.
+      <div id="success-message" class="hidden text-center space-y-3">
+        <p class="text-3xl">✨</p>
+        <p class="text-sm font-medium text-[#4A5D4E]">¡Listo! Te estamos llevando a tu ebook gratuito.</p>
+        <p class="text-xs text-[#8C8581]">Si la ventana no se abre sola, <a href="#" id="fallback-link" class="underline font-medium">haz clic aquí</a>.</p>
       </div>
-    </div>
 
-    <p class="text-xs text-[#8C8581] mt-3">
-      🔒 Tus respuestas se guardan de forma privada para sincronizar con tu perfil VIP.
-    </p>
-  </section>
-
-  <!-- PREVIEW INTERACTIVA -->
-  <section class="max-w-5xl mx-auto px-6 mb-24">
-    <div class="bg-[#FAF7F2] border border-[#EFECE6] rounded-3xl p-8 sm:p-12 shadow-sm">
-      <div class="max-w-2xl mx-auto bg-white rounded-2xl p-6 border border-[#EFECE6] shadow-md space-y-6">
-        
-        <div class="flex justify-between items-center border-b border-[#F5F2EB] pb-4">
-          <div>
-            <p class="text-xs text-[#8C8581]">HOY EN HABITUA</p>
-            <h3 class="font-serif text-lg font-medium">Hola, Sofía 🌿</h3>
-          </div>
-          <span class="bg-[#F0F4EC] text-[#4A5D4E] text-xs font-medium px-3 py-1 rounded-full">
-            Energía: Alta ⚡
-          </span>
-        </div>
-
-        <!-- CONEXIÓN MAPA DE CLARIDAD DENTRO DE LA APP -->
-        <div class="bg-[#FDFBF7] p-4 rounded-xl border border-[#EFECE6] flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <span class="text-xl">📍</span>
-            <div>
-              <p class="text-xs font-semibold text-[#2C2A29]">TU MAPA DE CLARIDAD</p>
-              <p class="text-xs text-[#6B6663]">Ruta activa: <i>Higiene de Sueño & Enfoque</i></p>
-            </div>
-          </div>
-          <span class="text-xs bg-[#E8E8E0] text-[#4A5D4E] font-medium px-2.5 py-1 rounded-md">Sincronizado ✓</span>
-        </div>
-
-        <div class="space-y-3">
-          <p class="text-xs font-semibold text-[#8C8581] uppercase tracking-wider">Tus Hábitos del Día</p>
-          
-          <div class="flex items-center justify-between p-3 rounded-xl bg-[#FDFBF7] border border-[#EFECE6]">
-            <span class="text-sm">🧘‍♀️ 10 min de meditación y presencia</span>
-            <span class="text-xs text-[#A3B18A] font-bold">✓ Completado</span>
-          </div>
-
-          <div class="flex items-center justify-between p-3 rounded-xl bg-[#FDFBF7] border border-[#EFECE6]">
-            <span class="text-sm">💧 2 Litros de agua e hidratación</span>
-            <span class="text-xs text-[#A3B18A] font-bold">✓ Completado</span>
-          </div>
-
-          <div class="flex items-center justify-between p-3 rounded-xl bg-[#FDFBF7] border border-[#EFECE6]">
-            <span class="text-sm">📊 Registro de presupuesto diario</span>
-            <span class="text-xs text-[#8C8581]">Pendiente</span>
-          </div>
-        </div>
-
-        <div class="bg-[#F0F4EC] p-4 rounded-xl flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <span class="text-2xl">🌱</span>
-            <div>
-              <p class="text-xs font-semibold text-[#4A5D4E]">COMUNIDAD ALTRUA</p>
-              <p class="text-xs text-[#6B7C6E]">Formas parte de un ecosistema con impacto social</p>
-            </div>
-          </div>
-          <a href="https://altrua.one" target="_blank" class="text-xs font-bold text-[#4A5D4E] hover:underline">Ver Ecosistema →</a>
-        </div>
-
-      </div>
+      <div id="error-message" class="hidden text-center text-xs text-[#B5654A] mt-3"></div>
     </div>
   </section>
 
   <!-- POR QUÉ NO FUNCIONAN LOS MÉTODOS TRADICIONALES -->
-  <section class="max-w-4xl mx-auto px-6 py-16 mb-20">
+  <section class="max-w-4xl mx-auto px-6 py-16">
     <h2 class="text-3xl font-serif text-center mb-12">
       ¿Por qué las agendas y los PDF estáticos terminan en el olvido?
     </h2>
@@ -305,30 +213,30 @@
         <div class="text-red-400 text-xl mb-3">❌</div>
         <h3 class="font-serif font-medium mb-2">Son Objetos Pasivos</h3>
         <p class="text-sm text-[#6B6663] leading-relaxed">
-          No te buscan, no calculan tus finanzas y requieren que escribas a mano cada detalle en aplicaciones externas.
+          No saben si hoy tienes energía para todo o si necesitas ir más lento. Te exigen lo mismo un lunes agotador que un domingo en calma.
         </p>
       </div>
 
       <div class="bg-white p-6 rounded-2xl border border-[#EFECE6]">
         <div class="text-red-400 text-xl mb-3">❌</div>
-        <h3 class="font-serif font-medium mb-2">Cero Adaptabilidad</h3>
+        <h3 class="font-serif font-medium mb-2">Ignoran tu Entorno</h3>
         <p class="text-sm text-[#6B6663] leading-relaxed">
-          No consideran cómo cambian tus niveles de energía o tu ciclo de un día a otro, exigiéndote siempre lo mismo.
+          Puedes tachar una tarea en una app y seguir rodeado del mismo caos que la saboteó. Ninguna lista de texto cambia el espacio en el que vives.
         </p>
       </div>
 
       <div class="bg-white p-6 rounded-2xl border border-[#EFECE6]">
         <div class="text-red-400 text-xl mb-3">❌</div>
-        <h3 class="font-serif font-medium mb-2">Sin Sentido de Propósito</h3>
+        <h3 class="font-serif font-medium mb-2">Compiten por tu Atención</h3>
         <p class="text-sm text-[#6B6663] leading-relaxed">
-          Tachar una lista común te da una marca en una hoja, pero no le aporta ningún impacto real a tu vida ni a tu entorno.
+          Entre notificaciones, apps y pestañas abiertas, hasta tu propia agenda se vuelve una distracción más — en lugar de un espacio de claridad.
         </p>
       </div>
     </div>
   </section>
 
   <!-- FEATURES -->
-  <section class="max-w-5xl mx-auto px-6 py-16 mb-20">
+  <section class="max-w-5xl mx-auto px-6 py-16">
     <div class="text-center mb-16">
       <p class="text-xs font-semibold text-[#A3B18A] uppercase tracking-widest mb-2">Sistema Operativo de Vida</p>
       <h2 class="text-3xl sm:text-4xl font-serif font-medium">Diseñado para acompañarte. Construido para transformarte.</h2>
@@ -345,9 +253,9 @@
 
       <div class="space-y-3">
         <span class="text-3xl">🌿</span>
-        <h3 class="font-serif text-xl font-medium">Finanzas y Metas en Claridad</h3>
+        <h3 class="font-serif text-xl font-medium">Entorno con Intención</h3>
         <p class="text-sm text-[#6B6663] leading-relaxed">
-          Administra tu presupuesto mensual, ahorros y metas de estilo de vida con paneles automáticos. Todo en orden sin estrés.
+          Diseña los espacios físicos y mentales que sostienen tus hábitos. Cuando tu entorno trabaja a tu favor, la disciplina deja de sentirse como esfuerzo.
         </p>
       </div>
 
@@ -357,6 +265,66 @@
         <p class="text-sm text-[#6B6663] leading-relaxed">
           Registra tus actividades en 1 tap y observa tu progreso en tiempo real con estadísticas automáticas de constancia.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIEW INTERACTIVA -->
+  <section class="max-w-5xl mx-auto px-6 mb-16">
+    <div class="bg-[#FAF7F2] border border-[#EFECE6] rounded-3xl p-8 sm:p-12 shadow-sm">
+      <div class="max-w-2xl mx-auto bg-white rounded-2xl p-6 border border-[#EFECE6] shadow-md space-y-6">
+
+        <div class="flex justify-between items-center border-b border-[#F5F2EB] pb-4">
+          <div>
+            <p class="text-xs text-[#8C8581]">HOY EN HABITUA</p>
+            <h3 class="font-serif text-lg font-medium">Hola, Sofía 🌿</h3>
+          </div>
+          <span class="bg-[#F0F4EC] text-[#4A5D4E] text-xs font-medium px-3 py-1 rounded-full">
+            Energía: Alta ⚡
+          </span>
+        </div>
+
+        <div class="bg-[#FDFBF7] p-4 rounded-xl border border-[#EFECE6] flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">📍</span>
+            <div>
+              <p class="text-xs font-semibold text-[#2C2A29]">TU MAPA DE CLARIDAD</p>
+              <p class="text-xs text-[#6B6663]">Ruta activa: <i>Diseño de Entorno</i></p>
+            </div>
+          </div>
+          <span class="text-xs bg-[#E8E8E0] text-[#4A5D4E] font-medium px-2.5 py-1 rounded-md">Sincronizado ✓</span>
+        </div>
+
+        <div class="space-y-3">
+          <p class="text-xs font-semibold text-[#8C8581] uppercase tracking-wider">Tus Hábitos del Día</p>
+
+          <div class="flex items-center justify-between p-3 rounded-xl bg-[#FDFBF7] border border-[#EFECE6]">
+            <span class="text-sm">🧘‍♀️ 10 min de meditación y presencia</span>
+            <span class="text-xs text-[#A3B18A] font-bold">✓ Completado</span>
+          </div>
+
+          <div class="flex items-center justify-between p-3 rounded-xl bg-[#FDFBF7] border border-[#EFECE6]">
+            <span class="text-sm">💧 2 Litros de agua e hidratación</span>
+            <span class="text-xs text-[#A3B18A] font-bold">✓ Completado</span>
+          </div>
+
+          <div class="flex items-center justify-between p-3 rounded-xl bg-[#FDFBF7] border border-[#EFECE6]">
+            <span class="text-sm">🪴 Orden del espacio de trabajo</span>
+            <span class="text-xs text-[#8C8581]">Pendiente</span>
+          </div>
+        </div>
+
+        <div class="bg-[#F0F4EC] p-4 rounded-xl flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🌱</span>
+            <div>
+              <p class="text-xs font-semibold text-[#4A5D4E]">COMUNIDAD ALTRUA</p>
+              <p class="text-xs text-[#6B7C6E]">Formas parte de un ecosistema con impacto social</p>
+            </div>
+          </div>
+          <a href="https://altrua.one" target="_blank" class="text-xs font-bold text-[#4A5D4E] hover:underline">Ver Ecosistema →</a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -383,11 +351,11 @@
   <footer class="max-w-4xl mx-auto px-6 py-20 text-center">
     <h2 class="text-3xl font-serif mb-4">Empieza a construir la vida que quieres.</h2>
     <p class="text-sm text-[#6B6663] mb-8">
-      Asegura tu lugar entre las fundadoras y obtén una tarifa preferencial de por vida en habitua.life.
+      Descarga gratis tu Mapa de Claridad y el ebook <em>Diseño de Entorno</em>, y asegura tu lugar entre las fundadoras con tarifa preferencial de por vida en habitua.life.
     </p>
 
-    <a href="#join" class="inline-block bg-[#2C2A29] text-[#FDFBF7] text-sm px-8 py-3.5 rounded-full hover:bg-[#4A4745] transition-all font-medium">
-      Reservar mi Lugar VIP
+    <a href="#quiz" class="inline-block bg-[#2C2A29] text-[#FDFBF7] text-sm px-8 py-3.5 rounded-full hover:bg-[#4A4745] transition-all font-medium">
+      Reclamar mi Ebook Gratis →
     </a>
 
     <div class="mt-16 text-xs text-[#8C8581]">
@@ -395,32 +363,6 @@
     </div>
   </footer>
 
-  <!-- SCRIPT PARA EL QUIZ INTERACTIVO PASO A PASO -->
-  <script>
-    let currentStep = 1;
-    const totalSteps = 6;
-
-    function selectScore(field, score) {
-      document.getElementById(`score_${field}`).value = score;
-      nextStep();
-    }
-
-    function nextStep() {
-      if (currentStep < totalSteps) {
-        document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.add('hidden');
-        currentStep++;
-        document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.remove('hidden');
-        
-        if (currentStep === 6) {
-          document.getElementById('step-indicator').innerText = `Paso Final: Registro VIP`;
-        } else {
-          document.getElementById('step-indicator').innerText = `Paso ${currentStep} de 6`;
-        }
-      }
-    }
-  </script>
-
-  <!-- Carga de tu archivo de JavaScript -->
   <script src="app.js"></script>
 </body>
 </html>
